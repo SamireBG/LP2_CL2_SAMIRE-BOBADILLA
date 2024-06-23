@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Dao.ClassProductoImp;
 import model.TblProductocl2;
@@ -29,7 +30,11 @@ public class ControladorProducto extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		HttpSession session = request.getSession(false);
+	    if (session == null || session.getAttribute("usuario") == null) {
+	        response.sendRedirect("login.jsp");
+	        return;
+	    }
 		TblProductocl2 producto=new TblProductocl2();
 		ClassProductoImp crud=new ClassProductoImp();
 		
@@ -38,14 +43,18 @@ public class ControladorProducto extends HttpServlet {
 		request.setAttribute("listadoproducto", listadoproducto);
 		//redirecionamos
 		request.getRequestDispatcher("/ListarProductos.jsp").forward(request, response);
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+		HttpSession session = request.getSession(false);
+	    if (session == null || session.getAttribute("usuario") == null) {
+	        response.sendRedirect("login.jsp");
+	        return;
+	    }
 		String nombre=request.getParameter("nombre");
 		String pventa=request.getParameter("venta");
 		String pcompra=request.getParameter("compra");
@@ -83,6 +92,7 @@ public class ControladorProducto extends HttpServlet {
 		request.setAttribute("listadoproducto", listadoproducto);
 		//redirecionamos
 		request.getRequestDispatcher("/ListarProductos.jsp").forward(request, response);
+		
 		
 	}
 

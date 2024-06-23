@@ -43,26 +43,26 @@ public class ControladorUsuario extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		//recuperamos los valores del formulario
 		
-				String usuario=request.getParameter("usuario");
-				String contraseña=request.getParameter("contraseña");
+		String usuario=request.getParameter("usuario");
+		String contraseña=request.getParameter("contraseña");
 				
-				//instanciar las respectivas entidades
-				TblUsuariocl2 usu=new TblUsuariocl2();
-				ClassUsuarioImp crud=new ClassUsuarioImp();
-				//asignamos valores
-				usu.setUsuariocl2(usuario);
-				usu.setPasswordcl2(contraseña);
-				//invocamos al metodo registrar
-				crud.RegistrarUsuario(usu);
+		//instanciar las respectivas entidades
+		TblUsuariocl2 usu=new TblUsuariocl2();
+		ClassUsuarioImp crud=new ClassUsuarioImp();
+		//asignamos valores
+		usu.setUsuariocl2(usuario);
+		usu.setPasswordcl2(contraseña);
+		//invocamos al metodo registrar
+		crud.RegistrarUsuario(usu);
 				
-				List<TblUsuariocl2> listadousuario=crud.ListadoUsuario();
-				//invocamos el listado de productos para la vista
-				request.setAttribute("listadousuario", listadousuario);
-				//redirecionamos
-				request.getRequestDispatcher("/ListarUsuario.jsp").forward(request, response);
+		List<TblUsuariocl2> listadousuario=crud.ListadoUsuario();
+		//invocamos el listado de productos para la vista
+		request.setAttribute("listadousuario", listadousuario);
+		//redirecionamos
+		request.getRequestDispatcher("/ListarUsuario.jsp").forward(request, response);
 	}
 
 }

@@ -15,21 +15,21 @@ public class TestEntidadProducto {
 		//asignamos valores
 		/*-------------------- U N O ---------- R E G I S T R O S --------------------*/
 			
-		/*
-						
+		
+		/*				
 		//--- I N S E R T A R --- D A T O S ---
 						
-		producto.setNombrecl2("Laptop-ASUS");
-		producto.setPrecioventacl2(2500);
-		producto.setPreciocompcl2(2500);
-		producto.setEstadocl2("Operativa");
-		producto.setDescripcl2("Una buena laptop");
+		producto.setNombrecl2("Producto01");
+		producto.setPrecioventacl2(2900);
+		producto.setPreciocompcl2(2900);
+		producto.setEstadocl2("Operativo");
+		producto.setDescripcl2("Un buen producto");
 						
 		//--- I N V O C A M O S --- M E T O D O ---
 						
 		crud.RegistrarProductos(producto);
-			
-		*/
+			*/
+		
 				
 		/*-------------------- F I N ---------- R E G I S T R O S --------------------*/
 
@@ -41,26 +41,26 @@ public class TestEntidadProducto {
 				
 		/*-------------------- U N O ---------- L I S T A R --------------------*/
 				
-				
-					//--- I N V O C A M O S --- M E T O D O --- L I S T A R ---
+			
+		//--- I N V O C A M O S --- M E T O D O --- L I S T A R ---
 						
-					List<TblProductocl2> listadoprod=crud.ListadoProducto();
-						//--- A P L I C A M O S --- B U C L E --- F O R ---
-					for(TblProductocl2 listar:listadoprod){
+		List<TblProductocl2> listadoprod=crud.ListadoProducto();
+			//--- A P L I C A M O S --- B U C L E --- F O R ---
+		for(TblProductocl2 listar:listadoprod){
 							
-					//--- I M P R I M I M O S --- L O S --- D A T O S ---
+		//--- I M P R I M I M O S --- L O S --- D A T O S ---
 							
-					System.out.print(
-						"-----------------------------------------------" + "\n\n" +
-						"-------------------- U N O --------------------" + "\n\n" +
-						"Codigo" + "\t\t: "+listar.getIdproductocl2()+ "\n" +
-						"Nombre" + "\t\t: "+listar.getNombrecl2()+ "\n" +
-						"P. de venta" + "\t: "+listar.getPrecioventacl2()+ "\n" +
-						"P. de compra" + "\t: "+listar.getPreciocompcl2()+ "\n" +
-						"Estado" + "\t\t: "+listar.getEstadocl2()+ "\n" +
-						"Descripcion" + "\t: "+listar.getDescripcl2()+ "\n\n" +
-						"-------------------- F I N --------------------" + "\n\n");
-					}
+		System.out.print(
+			"-----------------------------------------------" + "\n\n" +
+			"-------------------- U N O --------------------" + "\n\n" +
+			"Codigo" + "\t\t: "+listar.getIdproductocl2()+ "\n" +
+			"Nombre" + "\t\t: "+listar.getNombrecl2()+ "\n" +
+			"P. de venta" + "\t: "+listar.getPrecioventacl2()+ "\n" +
+			"P. de compra" + "\t: "+listar.getPreciocompcl2()+ "\n" +
+			"Estado" + "\t\t: "+listar.getEstadocl2()+ "\n" +
+			"Descripcion" + "\t: "+listar.getDescripcl2()+ "\n\n" +
+			"-------------------- F I N --------------------" + "\n\n");
+		}
 						
 				
 						

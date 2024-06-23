@@ -56,5 +56,27 @@ public class ClassUsuarioImp implements InterfaceUsuariocl2{
 		
 		
 	}//fin del metodo listar
+	
+	public TblUsuariocl2 ValidarUsuario(String usuario, String contraseña){
+		
+		 EntityManagerFactory fabr=Persistence.createEntityManagerFactory("LP2_CL2_SAMIRE-BOBADILLA");  
+	        EntityManager em=fabr.createEntityManager();  
+	        TblUsuariocl2 usu = null;
+	        try {
+	            em.getTransaction().begin();
+	            usu = em.createQuery("SELECT u FROM TblUsuariocl2 u WHERE u.usuariocl2 = :usuario AND u.passwordcl2 = :contraseña", TblUsuariocl2.class)
+	                    .setParameter("usuario", usuario)
+	                    .setParameter("contraseña", contraseña)
+	                    .getSingleResult();
+	            em.getTransaction().commit();
+	        } catch (Exception e) {
+	            em.getTransaction().rollback();
+	        } finally {
+	            em.close();
+	        }
+	        return usu;
+		
+	}
+	
 
 }// fin de la clase

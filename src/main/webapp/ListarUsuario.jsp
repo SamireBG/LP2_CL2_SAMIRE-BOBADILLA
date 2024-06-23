@@ -1,61 +1,93 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
-    <%@page import="java.util.*"%>
-    <%@page import="model.TblUsuariocl2"%>
-    
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-    
+<%@ page import="java.util.*"%>
+<%@ page import="model.TblUsuariocl2"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Listar Usuarios</title>
+<style type="text/css">
+    body {
+        background-image: url('imagenes/img01.jpg'); /* URL de tu imagen de fondo */
+        background-size: cover; /* Cubrir toda el área del cuerpo */
+        background-repeat: no-repeat; /* No repetir la imagen */
+        background-attachment: fixed; /* Fijar la imagen para que no se desplace con el contenido */
+        background-position: center; /* Centrar la imagen */
+        font-family: Arial, sans-serif; /* Tipo de fuente para el cuerpo del documento */
+        padding: 20px; /* Espaciado interior */
+        margin: 0; /* Eliminar margen exterior */
+        color: white; /* Color de texto blanco para todo el documento */
+    }
+    .titulo {
+        text-align: center;
+        color: white;
+    }
+    .tabla-usuarios {
+        background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente */
+        border-collapse: collapse; /* Colapsar bordes de celda */
+        width: 40%; /* Ancho de la tabla */
+        margin: 50px auto 0; /* Margen superior 50px, centrado horizontalmente */
+        padding: 20px; /* Espaciado interno */
+    }
+    .tabla-usuarios th, .tabla-usuarios td {
+        padding: 10px; /* Espaciado interno de celda */
+        text-align: center; /* Alineación centrada del texto */
+        color: black; /* Color de texto negro */
+    }
+    .tabla-usuarios th {
+        background-color: #ffffff; /* Fondo blanco para encabezados */
+    }
+    .tabla-usuarios a {
+        text-decoration: none; /* Sin subrayado para los enlaces */
+        color: blue; /* Color azul para los enlaces */
+    }
+    .boton-reg {
+        background-color: rgba(255, 255, 255, 0.5); /* Botón semitransparente */
+        color: white; /* Texto blanco */
+        border: none; /* Sin borde */
+        border-radius: 20px; /* Bordes redondeados */
+        padding: 15px 30px; /* Espaciado interno */
+        font-size: 16px; /* Tamaño de fuente */
+        cursor: pointer; /* Cambio de cursor */
+        display: block; /* Hace que el botón ocupe toda la anchura disponible */
+        margin: 20px auto; /* Margen superior e inferior de 20px, centrado horizontalmente */
+        text-align: center; /* Alineación centrada del texto */
+        text-decoration: none; /* Sin subrayado */
+    }
+</style>
 </head>
-<body bgcolor="#c5dec9">
+<body>
 
-<h1 align="center">Lista de Usuarios Registrados en BD</h1>
+<h1 class="titulo">LISTA DE USUARIOS REGISTRADOS</h1>
 
-<h2 align="center">
-	<a href="RegistrarUsuario.jsp" style="text-decoration:none; color:blue;">Registrar</a>
-</h2>
+<button class="boton-reg" onclick="window.location.href = 'RegistrarUsuario.jsp';">REGISTRAR USUARIO</button>
 
-	<table border="2" align="center">
-	
-		<tr>
-			<td>Código</td>
-			<td>Nombre</td>
-			<td>Contraseña</td>
-		</tr>
-	
-	<%
-	List<TblUsuariocl2> listadousuario = (List<TblUsuariocl2>)request.getAttribute("listadousuario");
-	if(listadousuario!=null){
-		for(TblUsuariocl2 listar : listadousuario){
-			%>
-			<tr>
-				<td><%=listar.getIdusuario()%></td>
-				<td><%=listar.getUsuariocl2()%></td>
-				<td><%=listar.getPasswordcl2()%></td>
-			</tr>
-			<%
-		}//fin del bucle for
-		
-		%>
-		
-		<%
-	}//fin de la condicion
-	
-	
-	
-	
-	
-	%>
-	
-	
-	
-	</table>
+<table class="tabla-usuarios" border="2" align="center">
+    <tr>
+        <td>Código</td>
+        <td>Nombre</td>
+        <td>Contraseña</td>
+    </tr>
+
+    <% 
+    List<TblUsuariocl2> listadousuario = (List<TblUsuariocl2>) request.getAttribute("listadousuario");
+    if (listadousuario != null) {
+        for (TblUsuariocl2 listar : listadousuario) {
+    %>
+    <tr>
+        <td><%=listar.getIdusuario()%></td>
+        <td><%=listar.getUsuariocl2()%></td>
+        <td><%=listar.getPasswordcl2()%></td>
+    </tr>
+    <%
+        } // fin del bucle for
+    }
+    %>
+
+</table>
 
 </body>
 </html>

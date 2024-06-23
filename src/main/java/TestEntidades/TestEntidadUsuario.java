@@ -19,8 +19,8 @@ public class TestEntidadUsuario {
 						
 		//--- I N S E R T A R --- D A T O S ---
 						
-		usuario.setUsuariocl2("SamireBG");
-		usuario.setPasswordcl2("123456");
+		usuario.setUsuariocl2("Admin07");
+		usuario.setPasswordcl2("sdfasd");
 						
 		//--- I N V O C A M O S --- M E T O D O ---
 						
@@ -41,7 +41,7 @@ public class TestEntidadUsuario {
 				
 			//--- I N V O C A M O S --- M E T O D O --- L I S T A R ---
 		
-						
+				
 			List<TblUsuariocl2> listadousu=crud.ListadoUsuario();
 			//--- A P L I C A M O S --- B U C L E --- F O R ---
 			for(TblUsuariocl2 listar:listadousu){
